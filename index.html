@@ -69,6 +69,14 @@
             margin-bottom: 15px;
             font-size: 14px;
         }
+
+        .show-pass {
+            display: flex;
+            align-items: center;
+            gap: 5px; /* Space between checkbox and label */
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -82,6 +90,11 @@
 
             <label for="password">Passcode</label>
             <input type="password" id="password" name="password" required>
+            
+            <div class="show-pass">
+                <input type="checkbox" id="togglePassword">
+                <label for="togglePassword">Show Passcode</label>
+            </div>
 
             <div class="error" id="error"></div>
 
@@ -91,6 +104,13 @@
 </div>
 
 <script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordField = document.getElementById('password');
+
+    togglePassword.addEventListener('change', () => {
+        passwordField.type = togglePassword.checked ? 'text' : 'password';
+    });
+
     function validateLogin() {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
