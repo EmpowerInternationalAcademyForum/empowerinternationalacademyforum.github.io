@@ -96,7 +96,8 @@
         const password = document.getElementById('password').value;
         const errorDiv = document.getElementById('error');
 
-        if (username === 'Patrick' && password === '12345678') {
+        if ((username === 'Patrick' && password === '12345678') || 
+            (username === 'Messi' && password === 'Bastille')) {
             window.location.href = 'news.html'; // Redirect to news page
         } else {
             errorDiv.textContent = 'Invalid username or passcode. Please try again.';
