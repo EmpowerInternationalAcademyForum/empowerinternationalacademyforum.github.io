@@ -17,15 +17,18 @@
             background-color: #1e90ff; /* Empower blue */
             color: white;
             padding: 10px 20px;
+            flex-wrap: wrap;
         }
 
         header img {
             height: 60px;
+            max-width: 100%;
         }
 
         header nav {
             display: flex;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         header nav a {
@@ -52,8 +55,9 @@
             color: black;
             background: rgba(255, 255, 255, 0.8);
             padding: 20px;
-            max-width: 300px;
+            max-width: 90%;
             border-radius: 10px;
+            box-sizing: border-box;
         }
 
         footer {
@@ -77,6 +81,45 @@
         .carousel img.active {
             display: block;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero .overlay {
+                top: 10%;
+                left: 5%;
+                padding: 15px;
+                font-size: 14px;
+            }
+
+            footer {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero .overlay {
+                top: 5%;
+                left: 5%;
+                font-size: 12px;
+            }
+
+            header img {
+                height: 50px;
+            }
+
+            header nav {
+                gap: 10px;
+            }
+
+            footer {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -97,7 +140,7 @@
         <img src="img/pra.jpg" alt="Hero Image 3">
     </div>
     <div class="overlay">
-        <h1>EXCELLENCE  INTERGRITY  ACTION</h1>
+        <h1>EXCELLENCE  INTEGRITY  ACTION</h1>
         <h2>Empower International Academy</h2>
     </div>
 </div>
