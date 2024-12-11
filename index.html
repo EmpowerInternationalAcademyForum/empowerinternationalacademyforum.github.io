@@ -4,69 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empower International Academy</title>
-    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1e90ff; /* Empower blue */
+            color: white;
+            padding: 10px 20px;
+        }
+
+        header img {
+            height: 60px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            position: relative;
+            text-align: left;
+            color: #1e90ff;
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero .overlay {
+            position: absolute;
+            top: 20%;
+            left: 5%;
+            color: black;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #1e90ff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            max-height: 500px;
+        }
+
+        .carousel img {
+            width: 100%;
+            display: none;
+        }
+
+        .carousel img.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <img src="img/log.png" alt="School Logo">
-        <h1>Empower International Academy</h1>
-        <p> Excellence | Integrity | Action</p>
-         <nav class="navbar">
-        <ul>
-            <li><a href="EIA Leadership Structure.html">Leadership</a></li>
-            <li><a href="news.html">Eia News Room</a></li>
-            
-        </ul>
-    </nav>
-    </header>
 
-    <main>
-        <section>
-            <h2>Our Mission</h2>
-            <p>
-               Our mission is to provide students with a world-class, Christ-centered education that encourages creativity, wisdom, and a desire to serve.  They strive to provide students with the knowledge, skills, and values needed to pursue their dreams and be responsible, compassionate citizens who have a positive impact in their communities and beyond.
-            </p>
-        </section>
-        <section>
-            <h2>Our Vision</h2>
-            <p>
-                Our vision is to equip students for a life of integrity, faith and impact. We accomplish that by providing a world-class, Christ-centered education that fosters creativity and instills wisdom, love and a desire to serve.
-            </p>
-        </section>
-        <section>
-            <h2>Core Values</h2>
-            <p>
-                Integrity<br>
-                Excellence<br>
-                 Action
-            </p>
-        </section>
-        <section>
-            <h2>Our Activities</h2>
-            <div class="carousel-container">
-                <div class="carousel-slides">
-                    <div class="slide">
-                        <h3>Academic Structure</h3>
-                        <img src="img/re.jpg" alt="Sports">
-                    </div>
-                    <div class="slide">
-                        <h3>Sports </h3>
-                        <img src="img/ga.jpg" alt="Arts">
-                    </div>
-                    <div class="slide">
-                        <h3>Music</h3>
-                        <img src="img/md.jpg" alt="STEM Programs">
-                    </div>
-                    <div class="slide">
-                        <h3>Church Service</h3>
-                        <img src="img/pra.jpg" alt="Community Service">
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Empower International Academy. All Rights Reserved.</p>
-    </footer>
+<header>
+    <img src="img/log.png" alt="Empower International Academy Logo">
+    <nav>
+        <a href="hr.html">Login</a>
+        <a href="#">Contact</a>
+        <a href="#">Menu</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <div class="carousel">
+        <img src="img/log.png" alt="Hero Image 1" class="active">
+        <img src="img/ga.jpg" alt="Hero Image 2">
+        <img src="img/pra.jpg" alt="Hero Image 3">
+    </div>
+    <div class="overlay">
+        <h1>EXCELLENCE  INTERGRITY  ACTION</h1>
+        <h2>Empower International Academy</h2>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Empower International Academy. All rights reserved.</p>
+</footer>
+
+<script>
+    const images = document.querySelectorAll('.carousel img');
+    let currentIndex = 0;
+
+    setInterval(() => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+    }, 30000); // Change every 30 seconds
+</script>
+
 </body>
 </html>
