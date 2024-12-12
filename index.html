@@ -3,148 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Empower International Academy</title>
     <style>
+        /* Body Styling */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
+            background-color: #ffffff; /* White background */
         }
 
-        .login-container {
+        /* Header Styling */
+        .header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            height: 100vh;
+            padding: 10px 20px;
+            background-color: #000; /* Black header */
+            color: #fff; /* White text */
+            position: relative; /* Required for z-index to work */
+            z-index: 10; /* Ensure header stays above other elements */
         }
 
-        .login-box {
-            background: white;
-            padding: 20px;
-            border: 2px solid #1e90ff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 300px;
+        .logo {
+            display: flex;
+            align-items: center;
         }
 
-        .login-box h2 {
-            margin-bottom: 20px;
-            color: #1e90ff;
-            text-align: center;
+        .logo img {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
         }
 
-        .login-box label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        .login-box input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .login-box button {
-            width: 100%;
-            padding: 10px;
-            background-color: #1e90ff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .logo span {
             font-size: 16px;
         }
 
-        .login-box button:hover {
-            background-color: #104e8b;
-        }
-
-        .error {
-            color: red;
-            text-align: center;
-            margin-top: -15px;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .show-pass {
+        .nav-buttons {
             display: flex;
-            align-items: center;
-            gap: 5px; /* Space between checkbox and label */
-            font-size: 14px;
-            margin-bottom: 20px;
+            gap: 10px;
         }
+
+        .nav-buttons button {
+            background-color: #001f54; /* Navy Blue */
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #fff; /* White text */
+        }
+
+        .nav-buttons button:hover {
+            background-color: #003080; /* Darker Navy Blue */
+        }
+
+        /* Main Section Styling */
+        .main-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .text-section {
+            flex: 1;
+            max-width: 40%;
+            padding: 20px;
+        }
+
+        .text-section h1 {
+            font-size: 48px;
+            color: #000; /* Black text */
+            margin: 0;
+        }
+
+        .text-section h1 span {
+            background-color: #001f54; /* Navy Blue */
+            color: #fff; /* White text */
+            padding: 0 10px;
+        }
+
+        .text-section p {
+            margin: 20px 0;
+            font-size: 16px;
+        }
+
+        .text-section .scroll-btn {
+            margin-top: 20px;
+            background-color: #001f54; /* Navy Blue */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            color: #fff; /* White text */
+        }
+
+        .text-section .scroll-btn:hover {
+            background-color: #003080; /* Darker Navy Blue */
+        }
+
+        /* Image Section Styling */
+        .image-section {
+            flex: 1;
+            max-width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            border-radius: 10px;
+            position: absolute;
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+            z-index: 1; /* Ensure images are below the header */
+        }
+
+        .image-section img.active {
+            opacity: 1;
+        }
+
+        /* Mission, Vision, and Core Values Section Styling */
+        .info-section {
+            padding: 20px;
+            background-color: #f4f4f4; /* Light Gray */
+        }
+
+        .info-section h2 {
+            color: #001f54; /* Navy Blue */
+        }
+
+        .info-section p {
+            color: #333; /* Dark Gray */
+        }
+
+        .info-section h3 {
+            color: #001f54; /* Navy Blue */
+        }
+
     </style>
 </head>
 <body>
 
-<div class="login-container">
-    <div class="login-box">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <label for="username">User Name</label>
-            <input type="text" id="username" name="username" required>
-
-            <label for="password">Passcode</label>
-            <input type="password" id="password" name="password" required>
-            
-            <div class="show-pass">
-                <input type="checkbox" id="togglePassword">
-                <label for="togglePassword">Show Passcode</label>
-            </div>
-
-            <div class="error" id="error"></div>
-
-            <button type="button" onclick="validateLogin()">Login</button>
-        </form>
+<div class="header">
+    <div class="logo">
+        <img src="img/log.png" alt="School Logo">
+        <span>Empower International Academy<br>Since 2020</span>
+    </div>
+    <div class="nav-buttons">
+        <button onclick="location.href='login.html'">Login</button>
+        <button>Contact</button>
     </div>
 </div>
 
+<div class="main-section">
+    <div class="text-section">
+        <h1>Exellence | Intergrity , <br> Action <span id="dynamic-text">___</span></h1>
+        <!--p>Scroll to discover more</p>
+        <button class="scroll-btn" onclick="scrollToInfo()">Scroll</button-->
+    </div>
+    <div class="image-section">
+        <img style="height: 400px; width:550px" src="img/re.jpg" alt="Students 1" class="active">
+        <img style="height: 400px; width:550px" src="img/ga.jpg" alt="Students 2">
+        <img style="height: 400px; width:550px" src="img/pra.jpg" alt="Students 3">
+    </div>
+</div>
+
+<div class="info-section" id="info-section">
+    <h2>Welcome to Empower International Academy</h2>
+    <p>Our school has been providing quality education since 1967, fostering a nurturing environment for learning and growth.</p>
+
+    <h3>Our Mission</h3>
+    <p>Our mission is to provide students with a world-class, Christ-centered education that encourages creativity, wisdom, and a desire to serve.  They strive to provide students with the knowledge, skills, and values needed to pursue their dreams and be responsible, compassionate citizens who have a positive impact in their communities and beyond.</p>
+
+    <h3>Our Vision</h3>
+    <p>Our vision is to equip students for a life of integrity, faith and impact. We accomplish that by providing a world-class, Christ-centered education that fosters creativity and instills wisdom, love and a desire to serve.</p>
+
+    <h3>Our Core Values</h3>
+    <p>
+        <ul>
+            <p>
+                Integrity<br>
+                Excellence<br>
+                 Action
+          </p>
+        </ul>
+    </p>
+</div>
+
 <script>
-    const togglePassword = document.getElementById('togglePassword');
-    const passwordField = document.getElementById('password');
+    const words = ["Empower", "International", "Academy"];
+    let index = 0;
 
-    togglePassword.addEventListener('change', () => {
-        passwordField.type = togglePassword.checked ? 'text' : 'password';
-    });
+    function typeWords() {
+        const dynamicText = document.getElementById('dynamic-text');
+        dynamicText.textContent = words[index];
+        index = (index + 1) % words.length;
+    }
 
-    function validateLogin() {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const errorDiv = document.getElementById('error');
+    setInterval(typeWords, 2000); // Change word every 2 seconds
 
-        if ((username === 'Patrick' && password === '12345678') || 
-            (username === 'Messi' && password === 'Bastille') || 
-            (username === '@Lowkey_dejaso' && password === 'Lowkey@18') || 
-            (username === 'engineerowenno' && password === 'theone8') || 
-            (username === 'Noella' && password === 'i2l3ov4e') || 
-            (username === 'Jazzy' && password === '24680002') || 
-            (username === 'Rebecca' && password === '244466666') || 
-            (username === 'Daniela.Elizabeth' && password === '…elizabeth11') || 
-            (username === 'Michelle M.' && password === '1313') ||
-            (username === 'Samuel Kayinja Gaggawala' && password === '10word') ||
-            (username === 'Felix.p19' && password === 'Nai2007@2025') ||
-            (username === 'p_drexler004' && password === 'Petersondrexler004') ||
-            (username === 'Isaac wadison' && password === 'isaac12345678910') ||
-            (username === 'Irene661' && password === 'PROUDDAUGHTEROFIAM') ||
-            (username === 'Jansen wa mummy' && password === '2009') ||
-            (username === 'Owen Cruz..' && password === 'OwenCruz11$#') ||
-            (username === 'Chloe Clairen' && password === 'Chloe Clairen') ||
-            (username === 'Muwonge Jeremiah' && password === '74012') ||
-            (username === 'Michelle M.' && password === '1313') ||
-            (username === 'Michelle M.' && password === '1313') ||
-            (username === 'Michelle M.' && password === '1313') ||
-            (username === 'Michelle M.' && password === '1313') ||
-            (username === 'Michelle M.' && password === '1313') ||
-            (username === 'Michelle M.' && password === '1313') ||
-            (username === 'Jethro Mukisa' && password === 'uncletj11')) {
-            window.location.href = 'EIA Leadership Structure.html'; 
-        } else {
-            errorDiv.textContent = 'Invalid username or passcode. Please try again. contact ssendegeyapatrick93@gmail.com';
-        }
+    const images = document.querySelectorAll('.image-section img');
+    let currentImageIndex = 0;
+
+    function slideImages() {
+        images[currentImageIndex].classList.remove('active');
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        images[currentImageIndex].classList.add('active');
+    }
+
+    setInterval(slideImages, 10000); // Change image every 10 seconds
+
+    function scrollToInfo() {
+        document.getElementById('info-section').scrollIntoView({ behavior: 'smooth' });
     }
 </script>
 
