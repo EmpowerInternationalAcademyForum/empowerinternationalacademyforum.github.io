@@ -3,120 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login Page </title>
     <style>
-        body {
+        /* General Reset */
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .login-container {
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            overflow: hidden;
+            position: relative;
         }
 
-        .login-box {
-            background: white;
-            padding: 20px;
-            border: 2px solid #1e90ff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* Animating Circles */
+        .circle {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: spin 8s linear infinite, move 6s ease-in-out infinite alternate;
+        }
+
+        .circle:nth-child(1) {
             width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
         }
 
-        .login-box h2 {
-            margin-bottom: 20px;
-            color: #1e90ff;
+        .circle:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            bottom: 5%;
+            right: 15%;
+            animation-direction: reverse;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(30px, 30px);
+            }
+        }
+
+        /* Login Container */
+        .login-container {
+            position: relative;
+            width: 90%;
+            max-width: 400px;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
             text-align: center;
+            color: white;
+            z-index: 10;
         }
 
-        .login-box label {
-            display: block;
-            margin-bottom: 8px;
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
             font-weight: bold;
         }
 
-        .login-box input {
-            width: 100%;
-            padding: 10px;
+        .input-box {
+            position: relative;
             margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
         }
 
-        .login-box button {
+        .input-box input {
             width: 100%;
             padding: 10px;
-            background-color: #1e90ff;
-            color: white;
             border: none;
             border-radius: 5px;
+            outline: none;
+        }
+
+        .input-box .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
             cursor: pointer;
+            color: gray;
             font-size: 16px;
         }
 
-        .login-box button:hover {
-            background-color: #104e8b;
+        .gradient-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s;
         }
 
-        .error {
-            color: red;
-            text-align: center;
-            margin-top: -15px;
-            margin-bottom: 15px;
-            font-size: 14px;
+        .gradient-button:hover {
+            opacity: 0.9;
         }
 
-        .show-pass {
-            display: flex;
-            align-items: center;
-            gap: 5px; /* Space between checkbox and label */
+        .error-message {
+            color: #ff416c;
             font-size: 14px;
-            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        /* Media Query for Small Devices */
+        @media (max-width: 600px) {
+            .circle:nth-child(1),
+            .circle:nth-child(2) {
+                display: none;
+            }
+
+            .login-container {
+                padding: 30px 15px;
+            }
+
+            .login-container h2 {
+                font-size: 20px;
+            }
+
+            .input-box input {
+                font-size: 14px;
+            }
+
+            .gradient-button {
+                font-size: 16px;
+                padding: 8px;
+            }
+
+            .error-message {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Animating Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
 
-<div class="login-container">
-    <div class="login-box">
+    <!-- Login Container -->
+    <div class="login-container">
         <h2>Login</h2>
         <form id="loginForm">
-            <label for="username">User Name</label>
-            <input type="text" id="username" name="username" required>
-
-            <label for="password">Passcode</label>
-            <input type="password" id="password" name="password" required>
-            
-            <div class="show-pass">
-                <input type="checkbox" id="togglePassword">
-                <label for="togglePassword">Show Passcode</label>
+            <div class="input-box">
+                <input type="text" id="username" placeholder="Username" required>
             </div>
-
-            <div class="error" id="error"></div>
-
-            <button type="button" onclick="validateLogin()">Login</button>
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Password" required>
+                <span class="toggle-password" onclick="togglePassword()">👁</span>
+            </div>
+            <button class="gradient-button" type="submit">Log In</button>
+            <div class="error-message" id="errorMessage"></div>
         </form>
     </div>
-</div>
 
-<script>
-    const togglePassword = document.getElementById('togglePassword');
-    const passwordField = document.getElementById('password');
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.toggle-password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.textContent = '🙈'; // Change to a hide icon
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.textContent = '👁'; // Change back to a show icon
+            }
+        }
 
-    togglePassword.addEventListener('change', () => {
-        passwordField.type = togglePassword.checked ? 'text' : 'password';
-    });
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
 
-    function validateLogin() {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const errorDiv = document.getElementById('error');
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('errorMessage');
 
-        if ((username === 'Patrick' && password === '12345678') || 
+            if (
+            (username === 'Patrick' && password === '12345678') || 
             (username === 'Messi' && password === 'Bastille') || 
             (username === '@Lowkey_dejaso' && password === 'Lowkey@18') || 
             (username === 'engineerowenno' && password === 'theone8') || 
@@ -140,13 +224,13 @@
             (username === 'angella' && password === 'J1E2T3W4A5K6S') ||
             (username === 'jacks' && password === 'almighty123!!') ||
             (username === 'Hezi T' && password === 'Hezi T CA 003') ||
-            (username === 'Jethro Mukisa' && password === 'uncletj11')) {
-            window.location.href = 'EIA Leadership Structure.html'; 
-        } else {
-            errorDiv.textContent = 'Invalid username or passcode. Please try again. contact ssendegeyapatrick93@gmail.com';
-        }
-    }
-</script>
-
+                (username === 'Jethro Mukisa' && password === 'uncletj11')
+            ) {
+                window.location.href = 'EIA Leadership Structure.html'; 
+            } else {
+                errorDiv.textContent = 'Invalid username or password. Please try again. Contact ssendegeyapatrick93@gmail.com.';
+            }
+        });
+    </script>
 </body>
 </html>
