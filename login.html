@@ -129,11 +129,18 @@
         }
 
         /* Media Query for Small Devices */
-        @media (max-width: 600px) {
-            .circle:nth-child(1),
-            .circle:nth-child(2) {
-                display: none;
-            }
+
+@media (max-width: 600px) {
+    .circle:nth-child(1) {
+        width: 150px;
+        height: 150px;
+    }
+
+    .circle:nth-child(2) {
+        width: 200px;
+        height: 200px;
+    }
+}
 
             .login-container {
                 padding: 30px 15px;
