@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page </title>
+    <title>Login Page</title>
     <style>
         /* General Reset */
         * {
@@ -128,19 +128,33 @@
             margin-top: 10px;
         }
 
+        .additional-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .additional-links a {
+            color: #ff416c;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .additional-links a:hover {
+            text-decoration: underline;
+        }
+
         /* Media Query for Small Devices */
+        @media (max-width: 600px) {
+            .circle:nth-child(1) {
+                width: 150px;
+                height: 150px;
+            }
 
-@media (max-width: 600px) {
-    .circle:nth-child(1) {
-        width: 150px;
-        height: 150px;
-    }
-
-    .circle:nth-child(2) {
-        width: 200px;
-        height: 200px;
-    }
-}
+            .circle:nth-child(2) {
+                width: 200px;
+                height: 200px;
+            }
 
             .login-container {
                 padding: 30px 15px;
@@ -160,6 +174,10 @@
             }
 
             .error-message {
+                font-size: 12px;
+            }
+
+            .additional-links a {
                 font-size: 12px;
             }
         }
@@ -184,6 +202,11 @@
             <button class="gradient-button" type="submit">Log In</button>
             <div class="error-message" id="errorMessage"></div>
         </form>
+
+        <div class="additional-links">
+            <a href="#" id="forgotPassword">Forgot Password?</a>
+            <a href="#" id="signUp">Sign Up</a>
+        </div>
     </div>
 
     <script>
@@ -207,30 +230,30 @@
             const errorDiv = document.getElementById('errorMessage');
 
             if (
-            (username === 'Patrick' && password === '12345678') || 
-            (username === 'Messi' && password === 'Bastille') || 
-            (username === '@Lowkey_dejaso' && password === 'Lowkey@18') || 
-            (username === 'engineerowenno' && password === 'theone8') || 
-            (username === 'Noella' && password === 'i2l3ov4e') || 
-            (username === 'Jazzy' && password === '24680002') || 
-            (username === 'Rebecca' && password === '244466666') || 
-            (username === 'Daniela.Elizabeth' && password === 'elizabeth11') || 
-            (username === 'Michelle M' && password === '1313') ||
-            (username === 'Samuel Kayinja Gaggawala' && password === '10word') ||
-            (username === 'Felix.p19' && password === 'Nai2007@2025') ||
-            (username === 'p_drexler004' && password === 'Petersondrexler004') ||
-            (username === 'Isaac wadison' && password === 'isaac12345678910') ||
-            (username === 'Irene661' && password === 'PROUDDAUGHTEROFIAM') ||
-            (username === 'Jansen wa mummy' && password === '2009') ||
-            (username === 'Owen Cruz' && password === 'OwenCruz11$#') ||
-            (username === 'Chloe Clairen' && password === 'Chloe Clairen') ||
-            (username === 'Muwonge Jeremiah' && password === '74012300') ||
-            (username === 'Mugwanya Samuel' && password === 'S1a2m3u4e5l^') ||
-            (username === 'Kaweesi Gideon' && password === 'Gideon88') ||
-            (username === 'Robinah' && password === 'rob@2007') ||
-            (username === 'angella' && password === 'J1E2T3W4A5K6S') ||
-            (username === 'jacks' && password === 'almighty123!!') ||
-            (username === 'Hezi T' && password === 'Hezi T CA 003') ||
+                (username === 'Patrick' && password === '12345678') || 
+                (username === 'Messi' && password === 'Bastille') || 
+                (username === '@Lowkey_dejaso' && password === 'Lowkey@18') || 
+                (username === 'engineerowenno' && password === 'theone8') || 
+                (username === 'Noella' && password === 'i2l3ov4e') || 
+                (username === 'Jazzy' && password === '24680002') || 
+                (username === 'Rebecca' && password === '244466666') || 
+                (username === 'Daniela.Elizabeth' && password === 'elizabeth11') || 
+                (username === 'Michelle M' && password === '1313') ||
+                (username === 'Samuel Kayinja Gaggawala' && password === '10word') ||
+                (username === 'Felix.p19' && password === 'Nai2007@2025') ||
+                (username === 'p_drexler004' && password === 'Petersondrexler004') ||
+                (username === 'Isaac wadison' && password === 'isaac12345678910') ||
+                (username === 'Irene661' && password === 'PROUDDAUGHTEROFIAM') ||
+                (username === 'Jansen wa mummy' && password === '2009') ||
+                (username === 'Owen Cruz' && password === 'OwenCruz11$#') ||
+                (username === 'Chloe Clairen' && password === 'Chloe Clairen') ||
+                (username === 'Muwonge Jeremiah' && password === '74012300') ||
+                (username === 'Mugwanya Samuel' && password === 'S1a2m3u4e5l^') ||
+                (username === 'Kaweesi Gideon' && password === 'Gideon88') ||
+                (username === 'Robinah' && password === 'rob@2007') ||
+                (username === 'angella' && password === 'J1E2T3W4A5K6S') ||
+                (username === 'jacks' && password === 'almighty123!!') ||
+                (username === 'Hezi T' && password === 'Hezi T CA 003') ||
                 (username === 'Jethro Mukisa' && password === 'uncletj11')
             ) {
                 window.location.href = 'EIA Leadership Structure.html'; 
