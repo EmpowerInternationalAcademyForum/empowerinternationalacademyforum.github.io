@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="icon" type="image/jpeg" href="img/log.jpg">
+    <link  style="height: 100px; width:1000px;" rel="icon" style="width: 40px; height : 20px " type="image/jpeg" href="img/log.jpg">
     <title>Empower International Academy</title>
     <style>
         /* Body Styling */
@@ -13,6 +13,12 @@
             font-family: Arial, sans-serif;
             background-color: #ffffff; /* White background */
         }
+
+link[rel="icon"] {
+    width: 25px;
+    height: 35px;
+}
+
 
         /* Header Styling */
         .header {
@@ -32,13 +38,13 @@
         }
 
         .logo img {
-            width: 60px;
+            width: 200px;
             height: auto;
-            margin-right: 10px;
+            margin-right: 20px;
         }
 
         .logo span {
-            font-size: 16px;
+            font-size: 25px;
         }
 
         .nav-buttons {
@@ -47,7 +53,7 @@
         }
 
         .nav-buttons button {
-            background-color: #001f54; /* Navy Blue */
+            background-color: blue; /* Navy Blue */
             border: none;
             padding: 10px 15px;
             cursor: pointer;
@@ -57,7 +63,7 @@
         }
 
         .nav-buttons button:hover {
-            background-color: #003080; /* Darker Navy Blue */
+            background-color: pink;
         }
 
         /* Main Section Styling */
@@ -82,7 +88,7 @@
         }
 
         .text-section h1 span {
-            background-color: #001f54; /* Navy Blue */
+            background-color:greenyellow; /* Navy Blue */
             color: #fff; /* White text */
             padding: 0 10px;
         }
@@ -186,13 +192,13 @@
     </div>
     <div class="nav-buttons">
         <button onclick="location.href='login.html'">Login</button>
-        <button>Contact</button>
+        
     </div>
 </div>
 
 <div class="main-section">
     <div class="text-section">
-        <h1>Exellence | Intergrity , <br> Action <span id="dynamic-text">___</span></h1>
+        <h1>Exellence|Intergrity|<br> Action<span id="dynamic-text"></span></h1>
         <!--p>Scroll to discover more</p>
         <button class="scroll-btn" onclick="scrollToInfo()">Scroll</button-->
     </div>
@@ -226,7 +232,7 @@
 </div>
 
 <script>
-    const words = ["Empower", "International", "Academy"];
+    const words =["Empower","International","Academy"];
     let index = 0;
 
     function typeWords() {
