@@ -3,22 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link  style="height: 100px; width:1000px;" rel="icon" style="width: 40px; height : 20px " type="image/jpeg" href="img/log.jpg">
+    <link rel="icon" type="image/jpeg" href="img/log.jpg">
     <title>Empower International Academy</title>
     <style>
         /* Body Styling */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #ffffff; /* White background */
+            background-color: #ffffff;
         }
-
-link[rel="icon"] {
-    width: 25px;
-    height: 35px;
-}
-
 
         /* Header Styling */
         .header {
@@ -28,8 +21,6 @@ link[rel="icon"] {
             padding: 10px 20px;
             background-color: #000; /* Black header */
             color: #fff; /* White text */
-            position: relative; /* Required for z-index to work */
-            z-index: 10; /* Ensure header stays above other elements */
         }
 
         .logo {
@@ -38,13 +29,13 @@ link[rel="icon"] {
         }
 
         .logo img {
-            width: 200px;
+            width: 150px; /* Auto scales for responsiveness */
             height: auto;
             margin-right: 20px;
         }
 
         .logo span {
-            font-size: 25px;
+            font-size: 18px;
         }
 
         .nav-buttons {
@@ -77,46 +68,31 @@ link[rel="icon"] {
 
         .text-section {
             flex: 1;
-            max-width: 40%;
+            max-width: 100%;
             padding: 20px;
         }
 
         .text-section h1 {
-            font-size: 48px;
-            color: #000; /* Black text */
+            font-size: 2rem;
+            color: #000;
             margin: 0;
         }
 
         .text-section h1 span {
-            background-color:greenyellow; /* Navy Blue */
-            color: #fff; /* White text */
+            background-color: greenyellow;
+            color: #fff;
             padding: 0 10px;
         }
 
         .text-section p {
             margin: 20px 0;
-            font-size: 16px;
-        }
-
-        .text-section .scroll-btn {
-            margin-top: 20px;
-            background-color: #001f54; /* Navy Blue */
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            color: #fff; /* White text */
-        }
-
-        .text-section .scroll-btn:hover {
-            background-color: #003080; /* Darker Navy Blue */
+            font-size: 1rem;
         }
 
         /* Image Section Styling */
         .image-section {
             flex: 1;
-            max-width: 60%;
+            max-width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -131,44 +107,43 @@ link[rel="icon"] {
             position: absolute;
             transition: opacity 1s ease-in-out;
             opacity: 0;
-            z-index: 1; /* Ensure images are below the header */
         }
 
         .image-section img.active {
             opacity: 1;
         }
 
-        /* Mission, Vision, and Core Values Section Styling */
+        /* Info Section Styling */
         .info-section {
             padding: 20px;
-            background-color: #f4f4f4; /* Light Gray */
+            background-color: #f4f4f4;
         }
 
-        .info-section h2 {
-            color: #001f54; /* Navy Blue */
+        .info-section h2, .info-section h3 {
+            color: #001f54;
         }
 
         .info-section p {
-            color: #333; /* Dark Gray */
+            color: #333;
         }
 
-        .info-section h3 {
-            color: #001f54; /* Navy Blue */
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-section ul li {
+            margin: 5px 0;
         }
 
         /* Responsive Styling */
         @media (max-width: 768px) {
-            .text-section {
-                max-width: 100%;
-                padding: 10px;
+            .logo img {
+                width: 100px;
             }
 
             .text-section h1 {
-                font-size: 36px;
-            }
-
-            .image-section {
-                max-width: 100%;
+                font-size: 1.5rem;
             }
 
             .image-section img {
@@ -178,13 +153,12 @@ link[rel="icon"] {
 
         @media (max-width: 480px) {
             .text-section h1 {
-                font-size: 28px;
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
-
 <div class="header">
     <div class="logo">
         <img src="img/log.png" alt="School Logo">
@@ -192,15 +166,12 @@ link[rel="icon"] {
     </div>
     <div class="nav-buttons">
         <button onclick="location.href='login.html'">Login</button>
-        
     </div>
 </div>
 
 <div class="main-section">
     <div class="text-section">
-        <h1>Exellence|Intergrity|<br> Action<span id="dynamic-text"></span></h1>
-        <!--p>Scroll to discover more</p>
-        <button class="scroll-btn" onclick="scrollToInfo()">Scroll</button-->
+        <h1>Excellence | Integrity | Action <span id="dynamic-text"></span></h1>
     </div>
     <div class="image-section">
         <img src="img/re.jpg" alt="Students 1" class="active">
@@ -211,28 +182,24 @@ link[rel="icon"] {
 
 <div class="info-section" id="info-section">
     <h2>Welcome to Empower International Academy</h2>
-    <p>Our school has been providing quality education since 2020,</p>
+    <p>Our school has been providing quality education since 2020.</p>
 
     <h3>Our Mission</h3>
-    <p>Our mission is to provide students with a world-class, Christ-centered education that encourages creativity, wisdom, and a desire to serve.  They strive to provide students with the knowledge, skills, and values needed to pursue their dreams and be responsible, compassionate citizens who have a positive impact in their communities and beyond.</p>
+    <p>Providing students with world-class, Christ-centered education encouraging creativity, wisdom, and service.</p>
 
     <h3>Our Vision</h3>
-    <p>Our vision is to equip students for a life of integrity, faith and impact. We accomplish that by providing a world-class, Christ-centered education that fosters creativity and instills wisdom, love and a desire to serve.</p>
+    <p>Equipping students for integrity, faith, and impact through quality education.</p>
 
     <h3>Our Core Values</h3>
-    <p>
-        <ul>
-            <p>
-                Excellence<br>
-                Integrity<br>
-                 Action
-          </p>
-        </ul>
-    </p>
+    <ul>
+        <li>Excellence</li>
+        <li>Integrity</li>
+        <li>Action</li>
+    </ul>
 </div>
 
 <script>
-    const words =["Empower","International","Academy"];
+    const words = ["Empower", "International", "Academy"];
     let index = 0;
 
     function typeWords() {
@@ -253,11 +220,6 @@ link[rel="icon"] {
     }
 
     setInterval(slideImages, 10000); // Change image every 10 seconds
-
-    function scrollToInfo() {
-        document.getElementById('info-section').scrollIntoView({ behavior: 'smooth' });
-    }
 </script>
-
 </body>
 </html>
