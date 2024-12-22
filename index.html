@@ -3,29 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpeg" href="img/log.jpg">
     <title>Empower International Academy</title>
     <style>
-        /* Body Styling */
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Header Styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .header {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #000; /* Black header */
-            color: #fff; /* White text */
+            padding: 20px;
+            background-color: #fff;
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000; /* Ensure header stays above all other content */
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
@@ -34,204 +43,314 @@
         }
 
         .logo img {
-            width: 100px;
-            height: auto;
-            margin-right: 20px;
+            height: 50px;
         }
 
-        .logo span {
-            font-size: 18px;
-            white-space: nowrap;
-        }
-
-        .nav-buttons {
+        .header-menu {
             display: flex;
-            align-items: center;
+            gap: 20px;
         }
 
-        .nav-buttons button {
-            background-color: blue; /* Navy Blue */
-            border: none;
+        .header-menu a {
+            text-decoration: none;
             padding: 10px 20px;
-            cursor: pointer;
+            background-color: darkblue;
+            color: white;
             border-radius: 5px;
             font-weight: bold;
-            color: #fff; /* White text */
-            margin-left: 10px;
         }
 
-        .nav-buttons button:hover {
-            background-color: pink;
-        }
-
-        /* Main Section Styling */
-        .main-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 80px; /* Adjusted to account for the fixed header */
-            padding: 20px;
-        }
-
-        .text-section {
-            flex: 1;
-            max-width: 50%;
-            padding-right: 20px;
-        }
-
-        .text-section h1 {
-            font-size: 2rem;
-            color: #000;
-            margin: 0;
-        }
-
-        .text-section h1 span {
-            background-color: greenyellow;
-            color: #000;
-            padding: 0 10px;
-        }
-
-        .text-section p {
-            margin: 20px 0;
-            font-size: 1rem;
-        }
-
-        /* Image Section Styling */
-        .image-section {
-            flex: 1;
-            max-width: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            overflow: hidden; /* Ensure images stay within bounds */
-        }
-
-        .image-section img {
+        .sliding-images {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 10px;
-            transition: opacity 1s ease-in-out;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
         }
 
-        .image-section img:not(.active) {
-            opacity: 0;
+        .sliding-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             position: absolute;
+            opacity: 0;
+            animation: slideAnimation 18s infinite;
         }
 
-        /* Info Section Styling */
-        .info-section {
+        .sliding-images img:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .sliding-images img:nth-child(2) {
+            animation-delay: 3s;
+        }
+
+        .sliding-images img:nth-child(3) {
+            animation-delay: 6s;
+        }
+
+        .sliding-images img:nth-child(4) {
+            animation-delay: 9s;
+        }
+
+        .sliding-images img:nth-child(5) {
+            animation-delay: 12s;
+        }
+
+        .sliding-images img:nth-child(6) {
+            animation-delay: 15s;
+        }
+
+        @keyframes slideAnimation {
+            0% {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+            25% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+        }
+
+        .content-section {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin-top: 120px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .info-section h2, .info-section h3 {
-            color: #001f54;
-        }
-
-        .info-section p {
+        .content-section h1 {
+            font-size: 2.5rem;
             color: #333;
         }
 
-        .info-section ul {
-            list-style: none;
-            padding: 0;
+        .content-section p {
+            margin: 20px 0;
         }
 
-        .info-section ul li {
-            margin: 5px 0;
+        .content-section .discover-more {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ffc107;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
         }
 
-        /* Responsive Styling */
+        .highlight {
+            background-color: darkblue;
+            font-weight: bold;
+            color: white;
+            padding: 0 5px;
+        }
+
+        .activity-section {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .activity-section h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .activity-section p {
+            margin: 20px 0;
+        }
+
+        .activity-section .club-info {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .activity-section .club-info img {
+            border-radius: 10px;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .activity-section .club-info .details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-section .club-info .details button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .activity-section .club-info .details button:hover {
+            background-color: #218838;
+        }
+
+        .achievement-section {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .achievement-section h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .achievement-section p {
+            margin: 20px 0;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        .footer a {
+            color: #ffc107;
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
-            .logo img {
-                width: 80px;
+            .sliding-images img {
+                height: auto;
             }
 
-            .text-section {
-                max-width: 100%;
-                padding-right: 0;
+            .content-section, .activity-section, .achievement-section {
+                width: 95%;
+                padding: 10px;
             }
 
-            .image-section {
-                max-width: 100%;
+            .header-menu a {
+                padding: 8px 16px;
             }
 
-            .nav-buttons button {
-                padding: 8px 15px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .text-section h1 {
-                font-size: 1.2rem;
+            .activity-section .club-info {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
-<div class="header">
-    <div class="logo">
-        <img src="img/log.png" alt="School Logo">
-        <span>Empower International Academy<br>Since 2020</span>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="img/log.png" alt="EIA LOGO">
+            </div>
+            <nav class="header-menu">
+                <a href="login.html">Login</a>
+                <!--a href="#">Contact</a-->
+            </nav>
+        </header>
+
+        <div class="sliding-images">
+            <img src="img/ego.jpg" alt="Students outdoors">
+            <img src="img/re.jpg" alt="School facilities">
+            <img src="img/jazzy.jpg" alt="Jazzy">
+            <img src="img/ga.jpg" alt="Library">
+            <img src="img/messi.jpg" alt="Sports field">
+            <!--img src="img/slide6.jpg" alt="Art class"-->
+        </div>
+
+        <div class="content-section">
+            <h1> Empower International Academy <span class="highlight">(EIA)</span></h1>
+            <p> To provide a world class Christ Centered Education That fosters Creativity & instills Wisdom Love & A desire to serve</p>
+            <a href="#" class="discover-more">Discover more</a>
+        </div>
+
+        <div class="activity-section">
+            <h1>Explore Our <span class="highlight">Clubs & Activities</span></h1>
+            <p>At EIA, we offer a diverse range of clubs and extracurricular activities designed to nurture students' talents and interests. From arts and drama to technology and sports, there's something for everyone.</p>
+
+            <div class="club-info">
+                <img src="img/re.jpg" alt="Art Club">
+                <div class="details">
+                    <p><b>IT Club</b> - A haven for creative minds to express themselves through painting, sculpting, and design.</p>
+                    <button>Learn More</button>
+                </div>
+            </div>
+
+            <div class="club-info">
+                <img src="img/messi.jpg" alt="Robotics Club">
+                <div class="details">
+                    <p><b>Debate Club</b> - Where innovation meets collaboration, building the engineers of tomorrow.</p>
+                    <button>Learn More</button>
+                </div>
+            </div>
+
+            <div class="club-info">
+                <img src="img/md.jpg" alt="Basketball Team">
+                <div class="details">
+                    <p><b>Music, Dance & Drama Club</b> - Promoting teamwork and athletic excellence on and off the court.</p>
+                    <button>Learn More</button>
+                </div>
+            </div>
+
+            <!--div class="club-info">
+                <img src="club3.png" alt="Chess Club">
+                <div class="details">
+                    <p><b>Chess Club</b> - Cultivating strategic thinking and problem-solving skills.</p>
+                    <button>Learn More</button>
+                </div>
+            </div-->
+
+            <div class="club-info">
+                <img src="club4.png" alt="Drama Club">
+                <div class="details">
+                    <p><b>Arts & Craft Club</b> - Encouraging creativity and self-expression through theater.</p>
+                    <button>Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="achievement-section">
+            <h1>Our <span class="highlight">Achievements</span></h1>
+            <p>EIA is proud to have been recognized for its excellence in academics, arts, and sports. Our students consistently rank among the top in national and international competitions. We are accredited by prestigious organizations, ensuring the highest quality education.</p>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 Empower International Academy. All Rights Reserved.</p>
+            <p><a href="#">Terms</a> | <a href="#">Privacy Policy</a> | <a href="#">Sitemap</a></p>
+        </footer>
     </div>
-    <div class="nav-buttons">
-        <button onclick="location.href='login.html'">Login</button>
-    </div>
-</div>
-
-<div class="main-section">
-    <div class="text-section">
-        <h1>Excellence | Integrity | Action <span id="dynamic-text"></span></h1>
-    </div>
-    <div class="image-section">
-        <img src="img/re.jpg" alt="Students 1" class="active">
-        <img src="img/ga.jpg" alt="Students 2">
-        <img src="img/pra.jpg" alt="Students 3">
-    </div>
-</div>
-
-<div class="info-section" id="info-section">
-    <h2>Welcome to Empower International Academy</h2>
-    <p>Our school has been providing quality education since 2020.</p>
-
-    <h3>Our Mission</h3>
-    <p>Providing students with world-class, Christ-centered education encouraging creativity, wisdom, and service.</p>
-
-    <h3>Our Vision</h3>
-    <p>Equipping students for integrity, faith, and impact through quality education.</p>
-
-    <h3>Our Core Values</h3>
-    <ul>
-        <li>Excellence</li>
-        <li>Integrity</li>
-        <li>Action</li>
-    </ul>
-</div>
-
-<script>
-    const words = ["Empower", "International", "Academy"];
-    let index = 0;
-
-    function typeWords() {
-        const dynamicText = document.getElementById('dynamic-text');
-        dynamicText.textContent = words[index];
-        index = (index + 1) % words.length;
-    }
-
-    setInterval(typeWords, 2000); // Change word every 2 seconds
-
-    const images = document.querySelectorAll('.image-section img');
-    let currentImageIndex = 0;
-
-    function slideImages() {
-        images[currentImageIndex].classList.remove('active');
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        images[currentImageIndex].classList.add('active');
-    }
-
-    setInterval(slideImages, 3000); // Change image every 3 seconds
-</script>
 </body>
 </html>
